@@ -26,7 +26,7 @@ It is **NOT** the complete PRIMARINE enterprise platform. It does not connect to
 
 ## 2. Quickstart Instructions
 
-The prototype is lightweight and runs directly in any modern browser via local HTTP server:
+The prototype is lightweight and runs directly in any modern browser via a local HTTP server:
 
 ```bash
 # Navigate to the prototype directory
@@ -35,9 +35,9 @@ cd prototype
 # Launch local server
 python -m http.server 8000
 ```
-Open **`http://localhost:8000/ui/index.html`** in your browser.
+Open **`http://localhost:8000`** (or `http://localhost:8000/ui/index.html`) in your browser.
 
-- **Main Decision Tool:** `http://localhost:8000/ui/index.html`
+- **Main Decision Tool:** `http://localhost:8000/ui/index.html` (or `http://localhost:8000/index.html`)
 - **Research Evidence Page:** `http://localhost:8000/ui/research.html`
 
 ---
@@ -61,6 +61,19 @@ Open **`http://localhost:8000/ui/index.html`** in your browser.
 
 ## 4. Running Unit Tests
 
+To run the automated decision logic unit tests:
+
 ```bash
 node prototype/tests/test_decision_logic.js
 ```
+*(Or from inside `prototype/`: `node tests/test_decision_logic.js`)*
+
+---
+
+## 5. Traceability & Research Verification
+
+| Artifact / Logic | Research Source File | Status |
+| :--- | :--- | :--- |
+| **Gating Threshold ($\tau = 5.9529$)** | `research/experiments/10_timing_flip_threshold.py` | Validated (1.35× Mean Width) |
+| **Testbed Observations** | `research/decision_boundary/decision_boundary_analysis.csv` | Empirical BDI test split |
+| **Selective Abstention** | `results/tables/abstention_policy_comparison.csv` | -52.33% False Breakouts |
